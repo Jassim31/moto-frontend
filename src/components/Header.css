@@ -1,0 +1,25 @@
+.hidelink
+{
+    text-decoration: none;
+    font-style: unset;
+    color: black;
+}
+.headercolour
+{
+    background-color: rgb(23, 8, 105);
+    
+}
+.colour1
+{
+    background-color: rgb(30, 200, 230);
+    
+}
+.color
+{
+    color: rgb(252, 252, 252);
+    
+}
+.navbar
+{
+    height: 90px;
+}

@@ -1,0 +1,10 @@
+.seviceimage {
+    background-image: url(
+        "https://t4.ftcdn.net/jpg/01/62/60/41/360_F_162604147_CTKTtJiL69pTFt9LXHRYz5SkiaDVbB6d.jpg"
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 85vh;
+  
+}
