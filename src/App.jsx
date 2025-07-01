@@ -39,6 +39,7 @@ function App() {
         <Route path='/spare' element={<Spare/>}/>
         <Route path='/locateus' element={<Locationaddress/>}/>
         <Route path='/productadd' element={<Productadd/>}/>
+        <Route path='/logout' element={<Signup/>}/>
       </Routes>
       <Footer/>
       

@@ -1,5 +1,6 @@
 
   import React from 'react'
+  import './Footer'
   
   export default function Footer() {
     return (
@@ -46,12 +47,23 @@
         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           {/* Content */}
           <h6 className="text-uppercase fw-bold mb-4">
-            <i className="fas fa-gem me-3" />Company name
+            <i className="fas fa-gem me-3" />ABOUT US
           </h6>
-          <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+        
+           <p>
+            <a href="#!" className="text-reset">Our Milestones</a>
           </p>
+           <p>
+            <a href="#!" className="text-reset"></a>Contact us
+          </p>
+          <li>FAQs</li>
+          <li>Wholesale Prices</li>
+          <li>Export/Import Bike Spare Parts</li>
+          <li>Privacy Policy</li>
+          <li>Returns Policy</li>
+          <li>Shipping Policy</li>
+          <li>Terms of Service</li>
+          
         </div>
         {/* Grid column */}
         {/* Grid column */}

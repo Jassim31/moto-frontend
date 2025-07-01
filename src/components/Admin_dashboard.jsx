@@ -1,7 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Await, Link, useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../store/useAuthStore'
 
 export default function Admin_dashboard() {
+  
+const { authUser, checkAuth, logout } = useAuthStore();
+const navigate =useNavigate();
+useEffect(() => {
+  if (!authUser){
+    navigate("/login")
+  }
+},[checkAuth,authUser]);
+
+const handleLogout = async () => {
+  await logout();
+};
+
   return (
     <div className="container-fluid  w-100">
       
@@ -62,6 +76,9 @@ export default function Admin_dashboard() {
 </div>
 
 </div>
+
+<div className='d-flex justify-content-center mt-4 '><Link to={"/Signup"}><button type="submit" className="btn btn-primary mb-5" onClick={handleLogout}>LOGOUT</button></Link></div>
+
 
 </div>
 
