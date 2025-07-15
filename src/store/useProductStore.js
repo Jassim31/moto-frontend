@@ -5,6 +5,17 @@ export const useProductStore = create((set)=>({
     products : [],
     loading: false,
 
+// get product
+
+    getProduct : async() =>{
+        try {
+            const response = await axiosInstance.get('get/products')
+            set({products : response.data})
+        } catch (error) {
+            alert(error.response.data.message)
+        }
+    },
+
 // add product
 
     addProduct : async(product) => {
@@ -17,17 +28,6 @@ export const useProductStore = create((set)=>({
          alert(error.response.data.message)
       }
 
-    },
-
-// get product
-
-    getProduct : async() =>{
-        try {
-            const response = await axiosInstance.get('get/products')
-            set({products : response.data})
-        } catch (error) {
-            alert(error.response.data.message)
-        }
     },
 
 // edit product

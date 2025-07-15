@@ -1,143 +1,59 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useCartStore } from '../store/useCartStore';
+import { baseURL } from '../lib/baseURL';
+import './Products.css'
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
+  const {getCart ,cart } = useCartStore()
+
+  useEffect(()=>{
+    getCart()
+  },[])
+  console.log(cart);
+  
   return (
-    <div className="container-fluid w-100">
-      <div className="row">
-        <div className="col">
-          <div className="card bg-base-100 w-96 shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                className="rounded-xl w-100"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Card Title</h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+  <div>
+   { 
+   cart?.products?.length <=0 ? 
+      <p className='m-5 text-center fs-1'>Cart is Empty</p>:
+    <>
+      <div className="container-row">
+         {
+           cart?.products?.map((product)=>(
+           <div className="col">
+            <div className="card ">
+             
+                <img
+                  src={`${baseURL}/uploads/${product.productId.image}`}
+                  alt={product.productId.image}
+                  className="card-img-top productThumbnail w-25"
+                />
+              
+              <div className="card-body">
+                <h2 className="card-title">{product.productId.name}</h2>
+                <p>
+                 {product.productId.description}
+                </p>
+                 <h5>{product.productId.price}</h5>
+               
               </div>
             </div>
           </div>
-        </div>
+           )) 
+         }
+         
+      </div>
+  
+  <div>
+  
+    <Link to={"/Checkout"} className="hidelink color">
+                         <button> checkout</button></Link>
+                        
+      
+  </div>
+    </>}
 
-        <div className="col">
-          <div className="card bg-base-100 w-96 shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                className="rounded-xl w-100"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Card Title</h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="card bg-base-100 w-96 shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                className="rounded-xl w-100"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Card Title</h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-</div>
-        <div className="row">
-        <div className="col">
-          <div className="card bg-base-100 w-96 shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                className="rounded-xl w-100"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Card Title</h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="card bg-base-100 w-96 shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                className="rounded-xl w-100"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Card Title</h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="card bg-base-100 w-96 shadow-sm">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes"
-                className="rounded-xl w-100"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Card Title</h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
-              </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-</div>
-       
     </div>
   );
 }

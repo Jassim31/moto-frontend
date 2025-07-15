@@ -3,29 +3,37 @@ import { Link } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 import { baseURL } from '../lib/baseURL';
 import Productedit from './Productedit';
+import './products.css';
 
 export default function Products() {
-  const {getProduct,products} = useProductStore()
+  const {getProduct,products,deleteProduct} = useProductStore()
 
   useEffect(()=>{
     getProduct()
   },[])
  
   // console.log(products);
-  
+  const handleDelete = async(id)=>{
+    await deleteProduct(id)
+    getProduct()
+  }
 
   return (
     <div>
       <div className=''>
         <ul class="nav justify-content-end">
+          <div>
+           <div>
+              <li class="nav-item">
+                <Link to="/productadd">ADD</Link>
+              </li>
+           </div>
+          </div>
+         
           <li class="nav-item">
-            <Link to="/productadd">ADD</Link>
-          </li>
+           
+             <Link to="/producthidden"> HIDDEN</Link>
           
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              HIDDEN
-            </a>
           </li>
         </ul>
       </div>
@@ -44,9 +52,9 @@ export default function Products() {
                 View
               </a>
                <Productedit item={product}/>
-              <a href="#" className="btn btn-primary">
+             <button className="btn btn-primary" onClick={()=>handleDelete(product._id)}>
                 Delete
-              </a>
+              </button>
             </div>
           </div>
         </div>

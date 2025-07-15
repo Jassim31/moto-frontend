@@ -28,17 +28,19 @@ export default function Header() {
                 </a>
             
   
-              <form className="d-flex w-75 " role="search">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success color" type="submit">
-                  <i class="fa-brands fa-searchengin"></i>
-                </button>
-              </form>
+            <div>
+                <form className="d-flex w-75 " role="search">
+                  <input
+                    className="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button className="btn btn-outline-success color" type="submit">
+                    <i class="fa-brands fa-searchengin"></i>
+                  </button>
+                </form>
+            </div>
   
               <button
                 className="navbar-toggler"
@@ -55,44 +57,52 @@ export default function Header() {
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                  
   
-                  <li className="nav-item  ms-2 ">
-                    <a className="nav-link active" aria-current="page">
-                      
-                      <Link to={"/login"} className="hidelink color text-center">
-                      <p className='text-center'>My Account</p>
-                      </Link>
-                    </a>
-                  </li>
+                <div>
+                    <li className="nav-item  ms-2 ">
+                      <a className="nav-link active" aria-current="page">
+                        
+                        <Link to={"/login"} className="hidelink color text-center">
+                        <p className='text-center'>My Account</p>
+                        </Link>
+                      </a>
+                    </li>
+                </div>
   
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page">
-                      <Link to={"/cart"} className="hidelink color">
-                        Cart
-                      </Link>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page">
-                      <Link to={"/service"} className="hidelink color">
-                        Service
-                      </Link>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" aria-current="page">
-                      <Link to={"/spare"} className="hidelink color">
-                        Spare
-                      </Link>
-                    </a>
-                  </li>
+                  <div>
+                    <li className="nav-item">
+                      <a className="nav-link" aria-current="page">
+                        <Link to={"/cart"} className="hidelink color">
+                          Cart
+                        </Link>
+                      </a>
+                    </li>
+                  </div>
+                  <div>
+                    <li className="nav-item">
+                      <a className="nav-link" aria-current="page">
+                        <Link to={"/userorder"} className="hidelink color">
+                          Orders
+                        </Link>
+                      </a>
+                    </li>
+                  </div>
+                  <div>
+                    <li className="nav-item">
+                      <a className="nav-link" aria-current="page">
+                        <Link to={"/spare"} className="hidelink color">
+                          Spare
+                        </Link>
+                      </a>
+                    </li>
+                  </div>
   
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a className="nav-link" aria-current="page">
                       <Link to={"/locateus"} className="hidelink color">
                        <p className='text-center'>Locate Us</p>
                       </Link>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

@@ -3,6 +3,8 @@ import { GoogleLogin } from '@react-oauth/google';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore';
+import { jwtDecode } from "jwt-decode"
+import { axiosInstance } from '../lib/axios';
 
 export default function Login() {
   const {login , authUser} = useAuthStore() 
@@ -11,6 +13,25 @@ export default function Login() {
     email: "",
     password: ""
   })
+
+  const handleGoogleLogin = async (credentialResponse) => {
+  try {
+    const decoded = jwtDecode(credentialResponse.credential);
+    const { email, name } = decoded;
+
+    const res = await axiosInstance.post('/google/signin', {
+      email,
+      name,
+    });
+
+    console.log('User logged in:', res.data);
+    navigate('/')
+    
+    // Save token or update context here if needed
+  } catch (error) {
+    console.error('Login error:', error);
+  }
+};
 
   const handleLogin = async(e)=>{
     e.preventDefault()
@@ -55,7 +76,7 @@ export default function Login() {
   </form>
   <GoogleLogin
   onSuccess={credentialResponse => {
-    console.log(credentialResponse);
+    handleGoogleLogin(credentialResponse);
   }}
   onError={() => {
     console.log('Login Failed');

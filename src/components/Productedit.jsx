@@ -3,7 +3,7 @@ import { useProductStore } from '../store/useProductStore'
 
 export default function Productedit({item}) {
     
-    const {editProduct} =useProductStore()
+    const {editProduct, getProduct} =useProductStore()
     const [product,setProduct]= useState({
         image:item.image,price:item.price ,category:item.category ,name:item.name,description:item.description
     })
@@ -20,6 +20,7 @@ export default function Productedit({item}) {
             formData.append('category', product.category)
 
             await editProduct(formData,item._id)
+            await getProduct()
             
         }
     }

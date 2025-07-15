@@ -16,6 +16,8 @@ import Service from './components/Service'
 import Spare from './components/Spare'
 import Locationaddress from './components/Locationaddress'
 import Productadd from './components/Productadd'
+import Checkout from './components/Checkout'
+import UserOrder from './components/UserOrder'
 
 function App() {
 
@@ -35,11 +37,15 @@ function App() {
         <Route path='/userlist' element={<Userlist/>}/>
         <Route path='/mygarage' element={<Mygarage/>}/>
         <Route path='/cart' element={<Cart/>}/>
+
+        <Route path='/checkout' element={<Checkout/>}/>
+        
         <Route path='/service' element={<Service/>}/>
         <Route path='/spare' element={<Spare/>}/>
         <Route path='/locateus' element={<Locationaddress/>}/>
         <Route path='/productadd' element={<Productadd/>}/>
         <Route path='/logout' element={<Signup/>}/>
+        <Route path='/userorder' element={<UserOrder/>}></Route>
       </Routes>
       <Footer/>
       
