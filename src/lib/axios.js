@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 export const axiosInstance = axios.create({
-    baseURL:"http://localhost:4001",
+    baseURL:"https://motogaragebackend-5.onrender.com",
     withCredentials: true  // to automatically send cookies
 })
