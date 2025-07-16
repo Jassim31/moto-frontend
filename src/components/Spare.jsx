@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useProductStore } from '../store/useProductStore';
 import { baseURL } from '../lib/baseURL';
-import './products.css'
 import { useCartStore } from '../store/useCartStore';
 
 export default function Spare() {

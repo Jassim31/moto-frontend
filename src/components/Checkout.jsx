@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useCartStore } from '../store/useCartStore'
 import { baseURL } from '../lib/baseURL'
-import axios from 'axios'
 import { axiosInstance } from '../lib/axios'
 
 export default function Checkout() {
