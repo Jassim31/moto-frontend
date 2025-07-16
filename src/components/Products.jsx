@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 import { baseURL } from '../lib/baseURL';
 import Productedit from './Productedit';
-import './products.css';
 
 export default function Products() {
   const {getProduct,products,deleteProduct} = useProductStore()
